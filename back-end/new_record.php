@@ -6,7 +6,9 @@ function save_new_number($db_connection,$number){
         insert into main (number) values ($number)
     ";
     if($db_connection->query($sql)){
-        echo "your number saves successfuly !";
+        echo json_encode(
+            ["state"=>true]
+        );
     }else{
         $error_text = $db_connection->error;
         echo "there was an error ! -- error text: $error_text";
