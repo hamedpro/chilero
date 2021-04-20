@@ -7,7 +7,7 @@
 #records_container h2{
     height: 50px;
     width: 100%;
-    background-color: green;
+    background-color: blueviolet;
     color: white;
     display: flex;
     justify-content: center;
@@ -38,4 +38,7 @@
 #new_record_box button {
     display: block;
     margin-left: 15px;
+}
+#new_record_box span{
+    margin-left:15px;
 }

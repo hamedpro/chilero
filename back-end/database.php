@@ -19,6 +19,7 @@ $db->close();
 $db = new mysqli($servername,$username,$password,$db_name);
 $sql = "create table if not exists main(
 	id int(5) primary key auto_increment,
-	number int(6)
+	number int(6),
+	time varchar(200)
 )";
 $db->query($sql);

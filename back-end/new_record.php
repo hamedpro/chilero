@@ -2,8 +2,9 @@
 include("database.php");
 
 function save_new_number($db_connection,$number){
+    $time = date("h:i:s");
     $sql = "
-        insert into main (number) values ($number)
+        insert into main (number,time) values ($number,'$time')
     ";
     if($db_connection->query($sql)){
         echo json_encode(
