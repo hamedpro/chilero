@@ -1,30 +1,17 @@
-let api = {};
-api.get_records = function(){
-    let return_value;
-    $.ajax({
-        url:"../back-end/get_records.php",
-        async:false,
-        success:function(data){
-            return_value = JSON.parse(data);
-        }
-    })
-    return return_value;
-}
-api.new_record = function(number){
-    let return_value;
-    $.ajax({
-        url:"../back-end/new_record.php",
-        async:false,
-        data:{
-            number:number
-        },
-        success:function(data){
-            if(JSON.parse(data)['state'] == true){
-            return_value = true;
-            }else{
-            return_value = false ;
+let actions_file_url = './back-end/actions.php';
+function take_action(data_object){
+    return new Promise((res,rej)=>{
+        $.ajax({
+            url:actions_file_url,
+            data:data_object,
+            success(data){
+                console.log(data)
+                res(data)
+            },
+            error:function(data){
+                console.log(data)
+                rej(data)
             }
-        }
+        });
     })
-    return return_value;
-}
+};
